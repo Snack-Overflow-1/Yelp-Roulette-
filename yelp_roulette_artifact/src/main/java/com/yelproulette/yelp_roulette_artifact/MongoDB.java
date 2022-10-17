@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import java.net.UnknownHostException;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 public class MongoDB {
 
@@ -23,10 +24,28 @@ public class MongoDB {
         MongoCollection collection = mongoDatabase.getCollection("test");
 
         Document document = new Document("name", "Ivan");
-        document.append("Sex", "male");
+        document.append("Sex", "never");
         document.append("age", "3");
-        document.append("race", "butterfly");
+        document.append("race", "400m");
+
+        // insert - add
+        // delete
+        // update
 
         collection.insertOne(document);
+        System.out.println("Database connected...");
+
+        // Document search = new Document("name", "Ivan");
+        // Document found = (Document) collection.find(new Document("name",
+        // "Ivan")).first();
+
+        // if (found != null) {
+        // System.out.println("Found user...");
+
+        // Bson updatedValue = new Document("age", 500);
+        // Bson updateOperation = new Document("$set", updatedValue);
+        // collection.updateOne(found, updateOperation);
+        // System.out.println("User updated...");
+        // }
     }
 }
