@@ -16,10 +16,10 @@ public class MongoDB {
     public static MongoCollection collection;
 
     public static void main(String[] args) {
+        MongoDB mongodb = new MongoDB();
         String uri = "mongodb+srv://dbtest:abcd1234@cluster0.elfhy1n.mongodb.net/test";
         MongoClientURI clienturi = new MongoClientURI(uri);
         mongoClient = new MongoClient(clienturi);
-
         MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
         collection = mongoDatabase.getCollection("test");
 
@@ -34,21 +34,25 @@ public class MongoDB {
 
         // collection.insertOne(document);
         System.out.println("Database connected...");
-        searchDocumentForUser("name", "Ivan");
-
-        // Document search = new Document("name", "Ivan");
-        // Document found = (Document) collection.find(new Document("name",
-        // "Ivan")).first();
-
-        // if (found != null) {
-        // System.out.println("Found user...");
-
-        // Bson updatedValue = new Document("age", 5);
-        // Bson updateOperation = new Document("$set", updatedValue);
-        // collection.updateOne(found, updateOperation);
-        // System.out.println("User updated...");
-        // }
+        System.out.println(mongodb.searchDocumentForUser("name", "Ivan"));
     }
+
+    // ----------------------------FINDING A USER AND UPDATING THEIR
+    // DATA--------------------------
+    // Document search = new Document("name", "Ivan");
+    // Document found = (Document) collection.find(new Document("name",
+    // "Ivan")).first();
+
+    // if (found != null) {
+    // System.out.println("Found user...");
+
+    // Bson updatedValue = new Document("age", 5);
+    // Bson updateOperation = new Document("$set", updatedValue);
+    // collection.updateOne(found, updateOperation);
+    // System.out.println("User updated...");
+    // }
+    // ----------------------------END FINDING A USER AND UPDATING THEIR
+    // DATA-------------------------- }
 
     public boolean searchDocumentForUser(String name, String nameValue) {
         boolean foundUser = false;
@@ -59,6 +63,7 @@ public class MongoDB {
             System.out.println("Found user...");
             return foundUser = true;
         }
-        return foundUser = false;
+        System.out.println("User not found...");
+        return foundUser;
     }
 }
