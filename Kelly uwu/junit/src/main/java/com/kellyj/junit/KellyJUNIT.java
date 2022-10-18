@@ -18,26 +18,53 @@ public class KellyJUNIT {
 	public static MongoClient mongoClient;
     public static DB database;
     public static DBCollection test;
+    public static MongoCollection collection; 
+
+    public static void runningtime() {
+        String uri = "mongodb+srv://snackoverflow:snackoverflowed@cluster0.tfsgthl.mongodb.net/test"; 
+        MongoClientURI clienturi = new MongoClientURI(uri);
+        mongoClient = new MongoClient(clienturi);
+
+        MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
+        collection = mongoDatabase.getCollection("test");
+
+        Document document = new Document("name", "Ivan");
+        document.append("Sex", "Non-binary");
+        document.append("Age", "29");
+        document.append("Race", "Human");
+    }
 
 
 	public static void main(String[] args) {
 		//SpringApplication.run(KellyJUNIT.class, args);
 
-		String uri = "mongodb+srv://snackoverflow:snackoverflowed@cluster0.tfsgthl.mongodb.net/test"; 
-		MongoClientURI clienturi = new MongoClientURI(uri);
-        MongoClient mongoClient = new MongoClient(clienturi);
+		// String uri = "mongodb+srv://snackoverflow:snackoverflowed@cluster0.tfsgthl.mongodb.net/test"; 
+		// MongoClientURI clienturi = new MongoClientURI(uri);
+        // MongoClient mongoClient = new MongoClient(clienturi);
 
-        MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
-        MongoCollection collection = mongoDatabase.getCollection("test");
+        // MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
+        // MongoCollection collection = mongoDatabase.getCollection("test");
 
-        Document document = new Document("name", "JoeMomma");
-        document.append("Sex", "Non-binary");
-        document.append("Age", "29");
-        document.append("Race", "Human");
+        // Document document = new Document("name", "Ivan");
+        // document.append("Sex", "Non-binary");
+        // document.append("Age", "29");
+        // document.append("Race", "Human");
 
-		collection.insertOne(document);
-        System.out.println("Database connected...");
+        runningtime(); 
+
+        //collection.insertOne(document); 
 
 	}
 
+    public boolean searchDocumentForUser(String name, String nameValue) {
+        boolean foundUser = false;
+        Document found = (Document) collection.find(new Document(name,
+                nameValue)).first();
+
+        if (found != null) {
+            System.out.println("Found user...");
+            return foundUser = true;
+        }
+        return foundUser = false;
+    }
 }
