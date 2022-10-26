@@ -8,6 +8,7 @@ public class YelpRouletteArtifactApplication {
 
 	public static void main(String[] args) {
 		// SpringApplication.run(YelpRouletteArtifactApplication.class, args);
+
 	}
 
 }

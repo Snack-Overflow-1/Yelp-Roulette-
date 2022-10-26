@@ -8,7 +8,7 @@ import org.bson.conversions.Bson;
 
 import java.net.UnknownHostException;
 
-public class MongoDB {
+public class MongoDBMain {
 
     public static MongoClient mongoClient;
     public static DB database;
@@ -16,7 +16,7 @@ public class MongoDB {
     public static MongoCollection collection;
 
     public static void main(String[] args) {
-        MongoDB mongodb = new MongoDB();
+        MongoDBMain mongodb = new MongoDBMain();
         String uri = "mongodb+srv://dbtest:abcd1234@cluster0.elfhy1n.mongodb.net/test";
         MongoClientURI clienturi = new MongoClientURI(uri);
         mongoClient = new MongoClient(clienturi);
