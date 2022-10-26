@@ -11,6 +11,7 @@ public class APILocationService extends org.springframework.data.geo.Point {
     public double getLatitude() {
         return getX();
     }
+
     /*
      * public void setLongitude() {
      * 
@@ -20,5 +21,8 @@ public class APILocationService extends org.springframework.data.geo.Point {
      * 
      * }
      */
+    public static void main(String[] args) {
+        geo
+    }
 
 }
