@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import HelloWorld from './Components/HelloWorld';
 import GenerateRestaurant from './Components/GenerateRestaurant';
 
 
@@ -8,11 +7,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
+      <img src="https://www.freepnglogos.com/uploads/yelp-logo-27.png" alt="Yelp Logo" height="50" align="left"></img>
       </header>
 
       <body className="App-body">
-        <HelloWorld />
         <GenerateRestaurant/>
         <br></br>
         <div id='app'></div>

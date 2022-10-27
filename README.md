@@ -14,13 +14,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 Starting the backend server:
 ```
-cd {path of backend with maven cmd}
+cd {path of backend folder}
 mvnw spring-boot:run
 ```
 
 Starting the frontend server:
 ```
+cd {path of frontend folder}
 npm install
+npm install react-bootstrap bootstrap
 npm start
 ```
 

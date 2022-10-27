@@ -11,7 +11,7 @@ public class RestaurantControllerTest {
         RestaurantController restaurantController = new RestaurantController();
 
         //When
-        String[] restaurantData = restaurantController.getRestaurants();
+        //String[] restaurantData = restaurantController.getRestaurants();
         //String restaurant1 = restaurantController.randomRestaurant("Taco Bell");
         String restaurant2 = restaurantController.randomRestaurant();
 
