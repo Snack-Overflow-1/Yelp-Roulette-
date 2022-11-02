@@ -33,6 +33,7 @@ public class RestaurantController{
 	boolean onRefreshPage = false;
 	long durationInSeconds = 0;
 	private static final String API_KEY = "aUUmAi731yi0X2gIQR2Y8ACDhPJSuPP6Y9Zsbn9stSBmluwa0vHYDYKh-HDYIcg4yPWhZ9FAwnYiXOCY2iI43ODZb7YFH5Ul6Mp1FB1GSWaPBvHfxQub3XGbi6BYY3Yx";
+	Restaurant input = new Restaurant();
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantController.class, args);
@@ -59,6 +60,23 @@ public class RestaurantController{
 		Business business = mapper.readValue(response.getBody(), Business.class);
 		return response.getBody();
 	}
+
+	//Test API post (get data from frontend)
+	@PostMapping("/input")
+	public void postInput(@RequestBody Restaurant input){
+		this.input.setAddress(input.getAddress());
+		this.input.setRadius(input.getRadius());
+		this.input.setPrice(input.getPrice());
+		this.input.setOpenNow(input.getOpenNow());
+	} 
+
+	@GetMapping("/input")
+	public String postInput(){
+		return "Address: " + input.getAddress() + 
+				" | Radius: " + input.getRadius() +
+				" | Price: " + input.getPrice() + 
+				" | Open Now: " + input.getOpenNow();
+	} 
 
 
 }
