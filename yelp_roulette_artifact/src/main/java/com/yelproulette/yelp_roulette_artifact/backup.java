@@ -1,12 +1,12 @@
 package com.yelproulette.yelp_roulette_artifact;
 
 import java.io.IOException;
-import java.util.*;
+// import java.util.*;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+// import org.jsoup.Jsoup;
+// import org.jsoup.nodes.Document;
+// import org.jsoup.nodes.Element;
+// import org.jsoup.select.Elements;
 
 import java.net.URI;
 import java.net.http.HttpClient;

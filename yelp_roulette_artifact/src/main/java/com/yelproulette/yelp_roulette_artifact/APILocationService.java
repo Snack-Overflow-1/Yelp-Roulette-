@@ -1,3 +1,5 @@
+package com.yelproulette.yelp_roulette_artifact;
+
 public class APILocationService extends org.springframework.data.geo.Point {
 
     public APILocationService(double latitude, double longitude) {
@@ -22,7 +24,6 @@ public class APILocationService extends org.springframework.data.geo.Point {
      * }
      */
     public static void main(String[] args) {
-        geo
     }
 
 }

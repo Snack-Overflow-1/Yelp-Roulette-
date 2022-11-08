@@ -17,16 +17,16 @@ public class MongoDBMain {
 
     public static void main(String[] args) {
         MongoDBMain mongodb = new MongoDBMain();
-        String uri = "mongodb+srv://dbtest:abcd1234@cluster0.elfhy1n.mongodb.net/test";
+        String uri = "mongodb+srv://dbtest:abcd1234@cluster0.flvwqqy.mongodb.net/test";
         MongoClientURI clienturi = new MongoClientURI(uri);
         mongoClient = new MongoClient(clienturi);
         MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
         collection = mongoDatabase.getCollection("test");
 
-        Document document = new Document("name", "Ivan");
-        document.append("Sex", "never");
-        document.append("age", "3");
-        document.append("race", "400m");
+        Document document = new Document("name", "Kyle");
+        document.append("Sex", "male");
+        document.append("age", "24");
+        document.append("race", "Human");
 
         // insert - add
         // delete
@@ -34,7 +34,7 @@ public class MongoDBMain {
 
         // collection.insertOne(document);
         System.out.println("Database connected...");
-        System.out.println(mongodb.searchDocumentForUser("name", "Ivan"));
+        System.out.println(mongodb.searchDocumentForUser("name", "Kyle"));
     }
 
     // ----------------------------FINDING A USER AND UPDATING THEIR
