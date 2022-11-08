@@ -66,23 +66,26 @@ public class RestaurantController{
 
 	@GetMapping("/getURL")
 	public String getURL() throws URISyntaxException, JsonProcessingException {
-		String url = "https://api.yelp.com/v3/businesses/search?term=restaurants";
+		String url = "https://api.yelp.com/v3/businesses/search?";
 		if(!input.getAddress().equals(""))
-			url += "&location=" + URLEncoder.encode(input.getAddress(), StandardCharsets.UTF_8);
+			url += "location=" + URLEncoder.encode(input.getAddress(), StandardCharsets.UTF_8);
 		if(input.getRadius() != 0)
 			url += "&radius=" + Math.round(input.getRadius() * MILESTOMETERS);
+		else if(input.getRadius() >= 25)
+			url += "&radius=40000";
 		if(!input.getPrice().equals(""))
 			url += "&price=" + input.getPrice();
+		url += "&limit=50";
 
-
+		
 		URI location = new URI(url);
-
 		RestTemplate restTemplate = new RestTemplate();
 		RequestEntity<?> request = RequestEntity.get(location).header("Authorization", "Bearer " + API_KEY).build();
 		ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
 		ObjectMapper mapper = new ObjectMapper();
 		Business business = mapper.readValue(response.getBody(), Business.class);
+		System.out.println("URL: " + url);
 		return response.getBody();
 	}
 
