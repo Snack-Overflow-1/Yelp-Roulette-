@@ -21,6 +21,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @SpringBootApplication
 @RestController
@@ -34,6 +36,7 @@ public class RestaurantController{
 	long durationInSeconds = 0;
 	private static final String API_KEY = "aUUmAi731yi0X2gIQR2Y8ACDhPJSuPP6Y9Zsbn9stSBmluwa0vHYDYKh-HDYIcg4yPWhZ9FAwnYiXOCY2iI43ODZb7YFH5Ul6Mp1FB1GSWaPBvHfxQub3XGbi6BYY3Yx";
 	Restaurant input = new Restaurant();
+	private static final float MILESTOMETERS = 1609.344f;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantController.class, args);
@@ -51,6 +54,28 @@ public class RestaurantController{
 	@GetMapping("/testYelpFusion")
 	public String testYelpFusion() throws URISyntaxException, JsonProcessingException {
 		URI location = new URI("https://api.yelp.com/v3/businesses/search?term=restaurants&location=3801+W+Temple+Ave%2C+Pomona%2C+CA+91768");
+
+		RestTemplate restTemplate = new RestTemplate();
+		RequestEntity<?> request = RequestEntity.get(location).header("Authorization", "Bearer " + API_KEY).build();
+		ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+
+		ObjectMapper mapper = new ObjectMapper();
+		Business business = mapper.readValue(response.getBody(), Business.class);
+		return response.getBody();
+	}
+
+	@GetMapping("/getURL")
+	public String getURL() throws URISyntaxException, JsonProcessingException {
+		String url = "https://api.yelp.com/v3/businesses/search?term=restaurants";
+		if(!input.getAddress().equals(""))
+			url += "&location=" + URLEncoder.encode(input.getAddress(), StandardCharsets.UTF_8);
+		if(input.getRadius() != 0)
+			url += "&radius=" + Math.round(input.getRadius() * MILESTOMETERS);
+		if(!input.getPrice().equals(""))
+			url += "&price=" + input.getPrice();
+
+
+		URI location = new URI(url);
 
 		RestTemplate restTemplate = new RestTemplate();
 		RequestEntity<?> request = RequestEntity.get(location).header("Authorization", "Bearer " + API_KEY).build();
