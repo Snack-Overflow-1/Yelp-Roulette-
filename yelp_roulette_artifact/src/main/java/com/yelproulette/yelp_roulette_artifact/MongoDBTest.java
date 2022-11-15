@@ -8,7 +8,7 @@ import org.bson.conversions.Bson;
 
 import java.net.UnknownHostException;
 
-public class MongoDBMain {
+public class MongoDBTest {
 
     public static MongoClient mongoClient;
     public static DB database;
@@ -26,7 +26,7 @@ public class MongoDBMain {
             MongoDBService mdbs = new MongoDBService();
             mdbs.addUserToDatabase("Ivan", "Revilla", "email@email.com", 20);
 
-            System.out.println(mdbs.getUser("name", "Kyle"));
+            System.out.println(mdbs.getUserWithString("name", "Kyle"));
         } catch (Exception e) {
             System.out.println(e);
         }
