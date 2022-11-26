@@ -41,12 +41,15 @@ public class Restaurant {
         this.openNow = openNow;
     }
 
+    public void setID(String id){this.id = id;}
     public void setName(String name){this.name = name;}
     public void setAddress(String address){this.address = address;}
     public void setRadius(int radius){this.radius = radius;}
     public void setPrice(String price){this.price = price;}
     public void setOpenNow(boolean openNow){this.openNow = openNow;}
 
+
+    public String getID(){return id;}
     public String getName(){return name;}
     public String getAddress(){return address;}
     public int getRadius(){return radius;}

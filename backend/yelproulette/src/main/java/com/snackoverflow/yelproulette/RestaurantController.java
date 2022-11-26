@@ -66,17 +66,20 @@ public class RestaurantController{
 
 	@GetMapping("/getURL")
 	public String getURL() throws URISyntaxException, JsonProcessingException {
-		String url = "https://api.yelp.com/v3/businesses/search?";
+		String url = "https://api.yelp.com/v3/businesses/search?term=restaurants%2C+food";
 		if(!input.getAddress().equals(""))
-			url += "location=" + URLEncoder.encode(input.getAddress(), StandardCharsets.UTF_8);
+			url += "&location=" + URLEncoder.encode(input.getAddress(), StandardCharsets.UTF_8);
 		if(input.getRadius() != 0)
 			url += "&radius=" + Math.round(input.getRadius() * MILESTOMETERS);
 		else if(input.getRadius() >= 25)
 			url += "&radius=40000";
 		if(!input.getPrice().equals(""))
 			url += "&price=" + input.getPrice();
+		if(input.getOpenNow())
+			url += "&open_now=true";
+		else
+			url += "&open_now=false";
 		url += "&limit=50";
-
 		
 		URI location = new URI(url);
 		RestTemplate restTemplate = new RestTemplate();
@@ -104,8 +107,31 @@ public class RestaurantController{
 				" | Radius: " + input.getRadius() +
 				" | Price: " + input.getPrice() + 
 				" | Open Now: " + input.getOpenNow();
-	} 
+	}
 
+	@PostMapping("/postID")
+	public void postID(@RequestBody Restaurant input){
+		this.input.setID(input.getID());
+	}
+
+	@GetMapping("/postID")
+	public String postID(){
+		return input.getID();
+	}
+
+	@GetMapping("/getID")
+	public String getBusinessData() throws URISyntaxException, JsonProcessingException {
+		String url = "https://api.yelp.com/v3/businesses/";
+		url += input.getID();
+
+		URI location = new URI(url);
+		RestTemplate restTemplate = new RestTemplate();
+		RequestEntity<?> request = RequestEntity.get(location).header("Authorization", "Bearer " + API_KEY).build();
+		ResponseEntity<String> response = restTemplate.exchange(request, String.class);
+
+		System.out.println("URL: " + url);
+		return response.getBody();
+	}
 
 }
 
