@@ -14,23 +14,7 @@ public class MongoDBTest {
     public void findUserTest1() {
         MongoDBService mongoDBService = new MongoDBService();
         MongoDBService.runTime();
-        boolean userfound = mongoDBService.searchDocumentForUser("name", "Ivan");
-        Assert.assertTrue("USER WAS NOT FOUND...", userfound);
-    }
-
-    @Test
-    public void findUserTest2() {
-        MongoDBService mongoDBService = new MongoDBService();
-        MongoDBService.runTime();
-        boolean userfound = mongoDBService.searchDocumentForUser("race", "400m");
-        Assert.assertTrue("USER WAS NOT FOUND...", userfound);
-    }
-
-    @Test
-    public void findUserTest3() {
-        MongoDBService mongoDBService = new MongoDBService();
-        MongoDBService.runTime();
-        boolean userfound = mongoDBService.searchDocumentForUserWithAge("age", 5);
-        Assert.assertTrue("USER WAS NOT FOUND...", userfound);
+        boolean userfound = mongoDBService.searchDocumentForUser("name", "Dummy");
+        Assert.assertTrue("USER WAS NOT FOUND IN DATABAES...", userfound);
     }
 }
