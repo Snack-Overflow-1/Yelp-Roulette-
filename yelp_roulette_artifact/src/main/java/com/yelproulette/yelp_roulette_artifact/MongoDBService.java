@@ -52,6 +52,7 @@ public class MongoDBService {
      * @return True/False if the user containing both paramaters are found
      */
     public boolean searchDocumentForUser(String title, String titleValue) {
+        runTime();
         boolean foundUser = false;
         Document found = (Document) collection.find(new Document(title,
                 titleValue)).first();
@@ -73,6 +74,7 @@ public class MongoDBService {
      * @return BSON format of the information from that Document that was found
      */
     public Document getUserWithString(String title, String titleValue) {
+        runTime();
         Document found = null;
         boolean bool = searchDocumentForUser(title, titleValue);
         if (bool == true) {
@@ -92,6 +94,7 @@ public class MongoDBService {
      * @return True/False if the user containing both paramaters are found
      */
     public boolean searchDocumentForUserWithAge(String title, int titleValue) {
+        runTime();
         boolean foundUser = false;
         Document found = (Document) collection.find(new Document(title,
                 titleValue)).first();

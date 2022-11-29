@@ -24,9 +24,11 @@ public class MongoDBTest {
             collection = mongoDatabase.getCollection("test");
 
             MongoDBService mdbs = new MongoDBService();
-            mdbs.addUserToDatabase("Ivan", "Revilla", "email@email.com", 20);
+            // mdbs.addUserToDatabase("Dummy", "Placeholder", "email@email.com", 1);
 
+            // Search the database with a given title and name if the user exists
             System.out.println(mdbs.getUserWithString("name", "Kyle"));
+
         } catch (Exception e) {
             System.out.println(e);
         }
