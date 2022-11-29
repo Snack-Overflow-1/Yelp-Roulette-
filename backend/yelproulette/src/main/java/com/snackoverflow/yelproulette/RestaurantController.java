@@ -116,7 +116,7 @@ public class RestaurantController{
 
 	@GetMapping("/postID")
 	public String postID(){
-		return input.getID();
+		return "ID: " + input.getID();
 	}
 
 	@GetMapping("/getID")
