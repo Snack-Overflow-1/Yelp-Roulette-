@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.SpringApplication;
 
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
@@ -28,6 +29,10 @@ public class DatabaseController {
 
     MongoDBUser mongoDBUser = new MongoDBUser("", "", "", 0);
     MongoDBService mDBS = new MongoDBService();
+
+    public static void main(String[] args) {
+        SpringApplication.run(DatabaseController.class, args);
+    }
 
     @PostMapping("/login")
     public void postInput(@RequestBody MongoDBUser mongoDBUser) {
