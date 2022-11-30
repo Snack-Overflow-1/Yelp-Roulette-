@@ -81,8 +81,9 @@ public class MongoDBService {
             Document search = new Document(title, titleValue);
             found = (Document) collection.find(search).first();
             return found;
+        } else {
+            return found;
         }
-        return found;
     }
 
     /**
@@ -118,15 +119,14 @@ public class MongoDBService {
      * @param email     String of the user's email
      * @param age       int of the age of the user
      */
-    public void addUserToDatabase(String newFirstName, String newLastName, String newEmail, int newAge) {
+    public void addUserToDatabase(String newFirstName, String newLastName, String newEmail, String newPassword) {
         Document newDocument = new Document("First name", newFirstName);
         newDocument.append("Last name", newLastName);
         newDocument.append("Email", newEmail);
-        newDocument.append("Age", newAge);
+        newDocument.append("Password", newPassword);
         runTime();
         System.out.println("Database connected...");
         collection.insertOne(newDocument);
         System.out.println("Added " + newFirstName + " " + newLastName + " into MongoDB....");
     }
-
 }

@@ -43,7 +43,7 @@ public class MongoDBUser {
         this.email = email;
     }
 
-    public void setAge(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
     // ----------END DEFAULT METHODS----------

@@ -51,7 +51,7 @@ public class RestaurantController {
 	private static MongoCollection collection;
 	private static DBCursor cursor;
 
-	MongoDBUser mongoDBUser = new MongoDBUser("", "", "", 0);
+	MongoDBUser mongoDBUser = new MongoDBUser("", "", "", "");
 	MongoDBService mDBS = new MongoDBService();
 
 	public static void main(String[] args) {
@@ -142,6 +142,12 @@ public class RestaurantController {
 				" | Radius: " + input.getRadius() +
 				" | Price: " + input.getPrice() +
 				" | Open Now: " + input.getOpenNow();
+
+	}
+
+	@GetMapping("/getUser")
+	public String string(String title, String titleValue) {
+		return mDBS.getUserWithString(title, titleValue).toString();
 	}
 
 	@PostMapping("/postID")

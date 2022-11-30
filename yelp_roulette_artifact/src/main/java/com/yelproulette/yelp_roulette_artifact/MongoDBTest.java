@@ -27,8 +27,8 @@ public class MongoDBTest {
             // mdbs.addUserToDatabase("Dummy", "Placeholder", "email@email.com", 1);
 
             // Search the database with a given title and name if the user exists
-            System.out.println(mdbs.searchDocumentForUser("firstName", "Retard"));
-            
+            System.out.println(mdbs.getUserWithString("firstName", "Dummy"));
+
         } catch (Exception e) {
             System.out.println(e);
         }
