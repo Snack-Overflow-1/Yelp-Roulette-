@@ -19,12 +19,19 @@ import java.net.UnknownHostException;
 
 public class MongoDBService {
 
-    private static MongoClient mongoClient;
     private static DB database;
     private static DBCollection test;
-    private static MongoCollection collection;
+
     // creating a cursor for searching through the database
     private static DBCursor cursor;
+
+    String uri = "mongodb+srv://dbtest:abcd1234@cluster0.flvwqqy.mongodb.net/test";
+    MongoClientURI clienturi = new MongoClientURI(uri);
+    MongoClient mongoClient = new MongoClient(clienturi);
+
+    // get the database and collection
+    MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
+    MongoCollection collection = mongoDatabase.getCollection("test");
 
     /**
      * This method starts the client
@@ -33,14 +40,7 @@ public class MongoDBService {
         // access the mongo database and create a MongoClient object from uri
         // String uri =
         // "mongodb+srv://dbtest:abcd1234@cluster0.elfhy1n.mongodb.net/test";
-        String uri = "mongodb+srv://dbtest:abcd1234@cluster0.flvwqqy.mongodb.net/test";
-        MongoClientURI clienturi = new MongoClientURI(uri);
-        mongoClient = new MongoClient(clienturi);
 
-        // get the database and collection
-        MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
-        collection = mongoDatabase.getCollection("test");
-        System.out.println("Database connected...");
     }
 
     /**

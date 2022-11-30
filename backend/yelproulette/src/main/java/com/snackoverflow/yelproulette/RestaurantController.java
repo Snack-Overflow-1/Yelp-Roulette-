@@ -70,20 +70,45 @@ public class RestaurantController {
 	}
 
 	@PostMapping("/register")
-	public void postInput(@RequestBody MongoDBUser mongoDBUser) {
+	public void postRegister(@RequestBody MongoDBUser mongoDBUser) {
 		this.mongoDBUser.setFirstName(mongoDBUser.getFirstName());
 		this.mongoDBUser.setLastName(mongoDBUser.getLastName());
 		this.mongoDBUser.setEmail(mongoDBUser.getEmail());
 		this.mongoDBUser.setPassword(mongoDBUser.getPassword());
 
-		mDBS.addUserToDatabase(mongoDBUser.getFirstName(), mongoDBUser.getLastName(), mongoDBUser.getEmail(),
-				mongoDBUser.getPassword());
+		//if username doesn't exist, add them
+		if(!userExists()){
+			mDBS.addUserToDatabase(mongoDBUser.getFirstName(), mongoDBUser.getLastName(), mongoDBUser.getEmail(), mongoDBUser.getPassword());
+		}
+	}
+
+	@GetMapping("/register")
+	public String postRegister(){
+		return "User: " + mongoDBUser.getEmail() + " | " + mongoDBUser.getPassword();
+	}
+
+	@GetMapping("/userExists")
+	public boolean userExists(){
+		return mDBS.searchDocumentForUser("Email", mongoDBUser.getEmail());
 	}
 
 	@GetMapping("/test")
 	public boolean bool() {
 		return mDBS.searchDocumentForUser("firstName", "Dummy");
 	}
+
+	@GetMapping("/getUser")
+	public String getUser() {
+		//System.out.println(mDBS.getUserWithString("Email", mongoDBUser.getEmail()).toString());
+		return mDBS.getUserWithString("Email", mongoDBUser.getEmail()).get("Password").toString();
+	}
+
+	@GetMapping("/getPassword")
+	public String getPassword() {
+		return "";
+	}
+
+
 
 	@GetMapping("/testYelpFusion")
 	public String testYelpFusion() throws URISyntaxException, JsonProcessingException {
@@ -143,11 +168,6 @@ public class RestaurantController {
 				" | Price: " + input.getPrice() +
 				" | Open Now: " + input.getOpenNow();
 
-	}
-
-	@GetMapping("/getUser")
-	public String string(String title, String titleValue) {
-		return mDBS.getUserWithString(title, titleValue).toString();
 	}
 
 	@PostMapping("/postID")
