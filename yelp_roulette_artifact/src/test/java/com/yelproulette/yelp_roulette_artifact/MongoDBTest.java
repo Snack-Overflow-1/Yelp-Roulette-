@@ -14,7 +14,15 @@ public class MongoDBTest {
     public void findUserTest1() {
         MongoDBService mongoDBService = new MongoDBService();
         MongoDBService.runTime();
-        boolean userfound = mongoDBService.searchDocumentForUser("name", "Dummy");
-        Assert.assertTrue("USER WAS NOT FOUND IN DATABAES...", userfound);
+        boolean userfound = mongoDBService.searchDocumentForUser("firstName", "Dummy");
+        Assert.assertTrue("USER WAS NOT FOUND IN DATABASE...", userfound);
+    }
+
+    @Test
+    public void findUserTest2() {
+        MongoDBService mongoDBService = new MongoDBService();
+        MongoDBService.runTime();
+        boolean userfound = mongoDBService.searchDocumentForUserWithAge("Age", 1);
+        Assert.assertTrue("USER WAS NOT FOUND IN DATABASE...", userfound);
     }
 }
