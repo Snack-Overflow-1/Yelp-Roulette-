@@ -4,14 +4,14 @@ public class MongoDBUser {
     private String firstName;
     private String lastName;
     private String email;
-    private int age;
+    private String password;
 
     // -----------Constructor----------
-    public MongoDBUser(String newName, String newLastName, String newEmail, int newAge) {
+    public MongoDBUser(String newName, String newLastName, String newEmail, String newPassword) {
         this.firstName = newName;
         this.lastName = newLastName;
         this.email = newEmail;
-        this.age = newAge;
+        this.password = newPassword;
     }
 
     // ----------DEFAULT METHODS----------
@@ -27,8 +27,8 @@ public class MongoDBUser {
         return email;
     }
 
-    public int getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
     public void setFirstName(String firstName) {
@@ -43,8 +43,8 @@ public class MongoDBUser {
         this.email = email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(String password) {
+        this.password = password;
     }
     // ----------END DEFAULT METHODS----------
 }

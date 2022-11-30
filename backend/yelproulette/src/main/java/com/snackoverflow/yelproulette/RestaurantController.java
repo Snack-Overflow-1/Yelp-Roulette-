@@ -74,10 +74,10 @@ public class RestaurantController {
 		this.mongoDBUser.setFirstName(mongoDBUser.getFirstName());
 		this.mongoDBUser.setLastName(mongoDBUser.getLastName());
 		this.mongoDBUser.setEmail(mongoDBUser.getEmail());
-		this.mongoDBUser.setAge(mongoDBUser.getAge());
+		this.mongoDBUser.setPassword(mongoDBUser.getPassword());
 
 		mDBS.addUserToDatabase(mongoDBUser.getFirstName(), mongoDBUser.getLastName(), mongoDBUser.getEmail(),
-				mongoDBUser.getAge());
+				mongoDBUser.getPassword());
 	}
 
 	@GetMapping("/test")
