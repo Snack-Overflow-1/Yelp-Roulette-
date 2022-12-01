@@ -52,17 +52,17 @@ public class MongoDBService {
      * @return True/False if the user containing both paramaters are found
      */
     public boolean searchDocumentForUser(String title, String titleValue) {
-        runTime();
-        boolean foundUser = false;
         Document found = (Document) collection.find(new Document(title,
                 titleValue)).first();
 
         if (found != null) {
-            System.out.println("Found user...");
-            return foundUser = true;
+            System.out.println(titleValue + " Found!");
+            return true;
         }
-        System.out.println("User not found...");
-        return foundUser;
+        else {
+            System.out.println(titleValue + " not found...");
+            return false;
+        }
     }
 
     /**
@@ -74,16 +74,7 @@ public class MongoDBService {
      * @return BSON format of the information from that Document that was found
      */
     public Document getUserWithString(String title, String titleValue) {
-        runTime();
-        Document found = null;
-        boolean bool = searchDocumentForUser(title, titleValue);
-        if (bool == true) {
-            Document search = new Document(title, titleValue);
-            found = (Document) collection.find(search).first();
-            return found;
-        } else {
-            return found;
-        }
+        return (Document) collection.find(new Document(title, titleValue)).first();
     }
 
     /**
@@ -127,6 +118,6 @@ public class MongoDBService {
         runTime();
         System.out.println("Database connected...");
         collection.insertOne(newDocument);
-        System.out.println("Added " + newFirstName + " " + newLastName + " into MongoDB....");
+        System.out.println("Added " + newEmail + " " + newLastName + " into MongoDB....");
     }
 }

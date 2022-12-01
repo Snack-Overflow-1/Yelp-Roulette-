@@ -75,11 +75,6 @@ public class RestaurantController {
 		this.mongoDBUser.setLastName(mongoDBUser.getLastName());
 		this.mongoDBUser.setEmail(mongoDBUser.getEmail());
 		this.mongoDBUser.setPassword(mongoDBUser.getPassword());
-
-		//if username doesn't exist, add them
-		if(!userExists()){
-			mDBS.addUserToDatabase(mongoDBUser.getFirstName(), mongoDBUser.getLastName(), mongoDBUser.getEmail(), mongoDBUser.getPassword());
-		}
 	}
 
 	@GetMapping("/register")
@@ -89,7 +84,18 @@ public class RestaurantController {
 
 	@GetMapping("/userExists")
 	public boolean userExists(){
-		return mDBS.searchDocumentForUser("Email", mongoDBUser.getEmail());
+		boolean exists = mDBS.searchDocumentForUser("Email", mongoDBUser.getEmail());
+
+		//if user doesn't exist, add them
+		if(!exists){
+			mDBS.addUserToDatabase(mongoDBUser.getFirstName(), mongoDBUser.getLastName(), mongoDBUser.getEmail(), mongoDBUser.getPassword());
+		}
+		return exists;
+	}
+
+	@GetMapping("/testUserExists")
+	public boolean testUserExists(@RequestParam(value = "user", defaultValue = "Bob") String user){
+		return mDBS.searchDocumentForUser("Email", user);
 	}
 
 	@GetMapping("/test")
