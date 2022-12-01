@@ -19,7 +19,7 @@
 
 .App-header 
 {
-  background-color: #282c34;
+  background-color: #ececec;
   min-height: 10vh;
   display: block;
   flex-direction: column;
@@ -29,8 +29,8 @@
 }
 .App-body
 {
-  background-color: #ccccff;
-  min-height: 90vh;
+  background-image: url("../public/images/restaurant2.jpg");
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,120 +52,67 @@
   }
 }
 
+/* GenerateRestaurant CSS */
+
 @font-face {
   font-family: ralewayFont;
   src: url("./RalewayFont/Raleway-Regular.ttf");
 }
 
 @font-face {
-  font-family: ralewayBoldFont;
-  src: url("./RalewayFont/Raleway-Bold.ttf");
+  font-family: ralewaySemiBoldFont;
+  src: url("./RalewayFont/Raleway-SemiBold.ttf");
 }
 
-#filterTitle
-{
-  font-family: ralewayBoldFont;
-  text-decoration: underline;
-  text-align: center;
+input[type='number']{
+  width: 15vh;
 }
 
-#addressLabel
-{
-  font-family: ralewayBoldFont;
-}
-
-#inputAddress
-{
+input {
   margin-left: 10px;
 }
 
-#radiusLabel
-{
-  font-family: ralewayBoldFont;
-  text-align: center;
-
+select {
+  margin-left: 10px;
+  width: 100px;
 }
 
-#inputRadius
-{
-  margin-left: 30px;
-
+html {
+  scroll-behavior: smooth;
 }
-
-#veganLabel
-{
-  font-family: ralewayBoldFont;
-  text-align: center;
-
-}
-
-#yesVegan
-{
-  cursor: pointer;
-  text-align: center;
-
-}
-
-#yesVeganLabel
-{
-  text-align: center;
-
-}
-
-#noVegan
-{
-  cursor: pointer;
-  text-align: center;
-
-  background: #F87DA9;
-}
-
-#noVeganLabel
-{
-  text-align: center;
-
-}
-
-#clearbtn
-{
-  text-align: center;
-  margin-right: 10px;
-}
-
-#generatebtn
-{
-  text-align: center;
-
-}
-
-
 
 /* Slot Text CSS */
 
 section {
-  position: absolute;
-  width: 300px;
-  height: 50px;
-  top: 90%;
+  position: relative;
+  max-width: 90%;
+  height: 70px;
+  margin-top: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
   
-  background-color: rgb(233, 185, 225);
-  border-radius: 2px;
-  border: 1px solid lightgrey;
-  color: rgb(0, 0, 0);
+  border-radius: 25px;
+  border: 2px solid black;
   font-family: sans-serif;
   text-align: center;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 40px;
+  line-height: 53px;
   cursor: default;
+
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s ease-out;
 }
 
 #container {
   position: absolute;
   top: 2px;
+  height: 10000px;
   width: 100%;
   transition: top ease-in-out 0.5s;
   text-align: center;
+  box-shadow: inset 0 0 0 1000px rgba(199, 124, 124, 0.35);
+  color: #ffffff;
+  font-family: ralewaySemiBoldFont;
 }

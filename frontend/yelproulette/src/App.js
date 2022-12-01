@@ -1,24 +1,32 @@
 import React from 'react';
+import Navbar from './Components/Navbar';
+import {HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import GenerateRestaurant from './Components/GenerateRestaurant';
+import Home from './Components/pages/Home';
+import Favorites from './Components/pages/Favorites';
+import Login from './Components/pages/Login';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <img src="https://www.freepnglogos.com/uploads/yelp-logo-27.png" alt="Yelp Logo" height="50" align="left"></img>
-      </header>
-
-      <body className="App-body">
-        <GenerateRestaurant/>
-        <br></br>
-        <div id='app'></div>
-
-      </body>
-
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' exact element={<Home/>} />
+        <Route path='/Favorites' exact element={<Favorites/>} />
+        <Route path='/About' element ={<About/>}/>
+        <Route path='/Login' element={<Login/>}/>
+      </Routes>
+    </>
   );
 }
 
 export default App;
+
+
+function About() {
+  // 👇️ redirect to external URL
+  window.location.replace('http://cs480-projects.github.io/teams-fall2022/SnackOverflow/index.html');
+
+  return null;
+}

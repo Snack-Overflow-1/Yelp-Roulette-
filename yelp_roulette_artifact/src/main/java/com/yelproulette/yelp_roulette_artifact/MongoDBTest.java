@@ -22,12 +22,14 @@ public class MongoDBTest {
             mongoClient = new MongoClient(clienturi);
             MongoDatabase mongoDatabase = mongoClient.getDatabase("mongoclientdb");
             collection = mongoDatabase.getCollection("test");
+            Document document = new Document();
 
             MongoDBService mdbs = new MongoDBService();
-            // mdbs.addUserToDatabase("Dummy", "Placeholder", "email@email.com", 1);
+            // mdbs.addUserToDatabase("Dummy2", "Placeholder", "email@email.com", 1);
 
             // Search the database with a given title and name if the user exists
-            System.out.println(mdbs.getUserWithString("firstName", "Dummy"));
+            System.out.println(mdbs.searchDocumentForUser("_id", "6386ec5194017c6da6409374"));
+            System.out.println(document.get("_id"));
 
         } catch (Exception e) {
             System.out.println(e);

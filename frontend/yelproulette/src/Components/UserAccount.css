@@ -1,0 +1,56 @@
+@font-face {
+    font-family: ralewayFont;
+    src: url("../RalewayFont/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: ralewaySemiBoldFont;
+    src: url("../RalewayFont/Raleway-SemiBold.ttf");
+}
+
+body{
+    background: url("../../public/images/restaurant3.jpg") center fixed;
+    width:auto;
+    height:auto;
+    background-repeat: no-repeat;
+}
+
+
+#rectangle {
+    margin: auto;
+    width: 50%;
+    padding-top: 15vh;
+    padding-left: 20vh; 
+    width: 500px;
+    height: 300px;
+}
+
+.w3-container {
+    margin-left: 75vh;
+    margin-top: 25vh;
+    width: 30%;
+    background: url("../../public/images/LoginRect.png");
+    
+}
+
+#header-text {
+    font-family: ralewaySemiBoldFont;
+    color: #BCB88A;
+    padding-left: 40px;
+}
+
+#inputUsername {
+    margin-left: 60px;
+}
+
+#inputPassword {
+    margin-left: 60px;
+}
+
+#loginbtn {
+    margin-left: 160px;
+    margin-bottom: 10px;
+    padding: 8px 20px;
+    font-size: 20px;
+}
+
