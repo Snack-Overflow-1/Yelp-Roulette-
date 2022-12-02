@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
- //Kelly, Janet, and Ivan through Liveshare
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Business {

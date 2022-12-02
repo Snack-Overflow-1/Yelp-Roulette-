@@ -1,7 +1,5 @@
 package com.snackoverflow.yelproulette;
 
- //Kelly, Janet, and Ivan through Liveshare
-
 import javax.persistence.*;
 
 @Entity

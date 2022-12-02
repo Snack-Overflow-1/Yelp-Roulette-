@@ -6,8 +6,6 @@
  * in the database
  */
 
- //Kelly, Janet, and Ivan through Liveshare
-
 package com.snackoverflow.yelproulette;
 
 import com.mongodb.*;

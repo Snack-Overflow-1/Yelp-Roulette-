@@ -1,5 +1,4 @@
- //Kelly, Janet, and Ivan through Liveshare 
- 
+
 package com.snackoverflow.yelproulette;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
