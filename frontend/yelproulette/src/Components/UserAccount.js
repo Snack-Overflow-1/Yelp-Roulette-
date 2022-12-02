@@ -58,7 +58,7 @@ const UserAccount = () =>
     }
     else{
       console.log(inputs[0] + " not in database")
-      alert("Creating new User...")
+      alert("User created")
     }
 
 

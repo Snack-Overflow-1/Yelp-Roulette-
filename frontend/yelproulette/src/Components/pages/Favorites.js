@@ -6,9 +6,9 @@ var favorites = [];
 var recents = [];
 
 function Favorites () {
-    const [recentImageURL, setRecentImageURL] = useState('/images/placeholder.jpg');
+    const [recentImageURL, setRecentImageURL] = useState('/images/placeholder.png');
     const [recentURL, setRecentURL] = useState('');
-    const [favoriteImageURL, setFavoriteImageURL] = useState('/images/placeholder.jpg');
+    const [favoriteImageURL, setFavoriteImageURL] = useState('/images/placeholder.png');
     const [favoriteURL, setFavoriteURL] = useState('');
 
     //inserts options for each element in an array
@@ -52,26 +52,25 @@ function Favorites () {
         <>
             <div class = "color">
                 <div class="favoritesGrid" >    
-                    <h3 align="center" id="favoriteList" >
-                        <h3 id='favLabel'>Favorites</h3>
+                    <h3 align="center" id="favoriteList">
+                        <h3 id='favLabel' >Favorites</h3>
+                            <img src={favoriteImageURL} alt="favoriteImage" class = "icon"/>
+                            <br></br>
                             <select name="favorites" size="20" class="favorites" onChange={updateFavorite}>
                             {optionArray2(favorites)} 
                             </select> 
-                        <br></br>
-                            <img src={favoriteImageURL} alt="favoriteImage" class="favorites"/>
-                            <br></br>
-                        
+                      
                         <a href={favoriteURL}>Yelp Link</a>
                     </h3>
                     
                     <h3 align="center" id="recentList">
                         <h3 id='recentLabel'>Recently Viewed</h3>
+                        <img src={recentImageURL} alt="recentImage" class="icon"/>
+                        <br></br>
                         <select name="recents" size="20" class="recents" onChange={updateRecent}>
                             {optionArray2(recents)}
                         </select>
-                        <br></br>
-                        <img src={recentImageURL} alt="recentImage" class="recents"/>
-                        <br></br>
+
                         <a href={recentURL}>Yelp Link</a>
                     </h3>
                     
