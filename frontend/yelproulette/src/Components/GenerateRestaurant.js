@@ -27,9 +27,9 @@ const GenerateRestaurant = () =>
   const [categories, setCategories] = useState('');
   const [time, setTime] = useState('');
   const [url, setURL] = useState('');
-  const [imageURL, setImageURL] = useState('/images/placeholder.jpg');
-  const [dishPhoto1, setDishPhoto1] = useState('/images/placeholder.jpg');
-  const [dishPhoto2, setDishPhoto2] = useState('/images/placeholder.jpg');
+  const [imageURL, setImageURL] = useState('/images/placeholder.png');
+  const [dishPhoto1, setDishPhoto1] = useState('/images/placeholder.png');
+  const [dishPhoto2, setDishPhoto2] = useState('/images/placeholder.png');
 
   const clearFields = () => 
   {
