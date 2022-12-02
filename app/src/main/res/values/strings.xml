@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Oof</string>
+    <string name="hyperlink"> <a href = "$LinkHyper"> Link</a></string>
+    <string name="www.yelp.com">LinkHyper</string>
+</resources>
