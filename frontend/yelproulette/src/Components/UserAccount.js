@@ -23,7 +23,7 @@ const UserAccount = () =>
       "lastName" : ""
     }
     //send user/pass to backend
-    await fetch("http://localhost:8080/api/register", {
+    await fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/register", {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -40,7 +40,7 @@ const UserAccount = () =>
     
     if(exists){
       //check password of existing user
-      fetch("http://localhost:8080/api/getUser", { 
+      fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/getUser", { 
       })
       .then(response => response.text())
       .then((password) => {
@@ -48,7 +48,7 @@ const UserAccount = () =>
         if(inputs[1] === password){
           alert("Password matches :)")
           //Route back to home or favorites
-          window.location.replace('http://localhost:3000');
+          window.location.replace('http://ec2-3-94-78-198.compute-1.amazonaws.com');
         }
         else{
           alert("Incorrect password :(")
@@ -67,7 +67,7 @@ const UserAccount = () =>
   function getUserExists(){
     return new Promise((resolve, reject) =>{
       //check if user exists in database
-      fetch("http://localhost:8080/api/userExists", { 
+      fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/userExists", { 
       })
       .then(response => response.text())
       .then((bool) => {

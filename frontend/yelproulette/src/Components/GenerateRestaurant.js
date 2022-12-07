@@ -56,7 +56,7 @@ const GenerateRestaurant = () =>
       "openNow" : inputs[4]
     }
     //fetch("http://localhost:8080/api/input", {
-    fetch("http://ec2-34-222-81-234.us-west-2.compute.amazonaws.com:8080/api/input", {
+    fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/input", {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -76,7 +76,7 @@ const GenerateRestaurant = () =>
 
     //Get api data from yelp business search endpoint
     //fetch("http://localhost:8080/api/getURL", {
-    fetch("http://ec2-34-222-81-234.us-west-2.compute.amazonaws.com:8080/api/getURL", { 
+    fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/getURL", { 
       //headers: {'Authorization': 'Bearer ' + apiKey}
     })
     .then(response => response.json())
@@ -103,7 +103,7 @@ const GenerateRestaurant = () =>
       "id" : curBusiness.id
     }
     //fetch("http://localhost:8080/api/postID", {
-    await fetch("http://ec2-34-222-81-234.us-west-2.compute.amazonaws.com:8080/api/postID", { 
+    await fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/postID", { 
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -115,7 +115,7 @@ const GenerateRestaurant = () =>
 
     //Get business data from yelp business endpoint
     //fetch("http://localhost:8080/api/getID", {
-    await fetch("http://ec2-34-222-81-234.us-west-2.compute.amazonaws.com:8080/api/getID", { 
+    await fetch("http://ec2-3-94-78-198.compute-1.amazonaws.com:8080/api/getID", { 
     })
     .then(response => response.json())
     .then((apiData) => {

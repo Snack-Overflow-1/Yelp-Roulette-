@@ -152,8 +152,6 @@ public class RestaurantController {
 		RequestEntity<?> request = RequestEntity.get(location).header("Authorization", "Bearer " + API_KEY).build();
 		ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
-		ObjectMapper mapper = new ObjectMapper();
-		Business business = mapper.readValue(response.getBody(), Business.class);
 		System.out.println("URL: " + url);
 		return response.getBody();
 	}
